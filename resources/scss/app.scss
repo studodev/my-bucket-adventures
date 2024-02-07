@@ -1,0 +1,13 @@
+@use "base/core";
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    background-color: var(--dark-blue);
+    color: var(--blue);
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--lilac);
+}
