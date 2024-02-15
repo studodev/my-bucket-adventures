@@ -1,6 +1,12 @@
 @use "base/core";
+@use "components/layout/header";
+@use "components/layout/footer";
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
     font-family: 'Comfortaa', sans-serif;
     font-size: 16px;
     background-color: var(--dark-blue);
@@ -10,4 +16,14 @@ body {
 h1 {
     font-size: 2rem;
     color: var(--lilac);
+}
+
+a {
+    text-decoration: none;
+    color: var(--yellow);
+}
+
+main {
+    margin-top: 80px;
+    flex: 1;
 }
