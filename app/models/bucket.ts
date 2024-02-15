@@ -1,7 +1,8 @@
 import Category from "#models/category";
-import type { HasOne } from "@adonisjs/lucid/types/relations";
+import Item from "#models/item";
+import type { BelongsTo, HasMany } from "@adonisjs/lucid/types/relations";
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne } from "@adonisjs/lucid/orm";
+import { BaseModel, belongsTo, column, hasMany } from "@adonisjs/lucid/orm";
 
 export default class Bucket extends BaseModel {
     @column({ isPrimary: true })
@@ -13,8 +14,11 @@ export default class Bucket extends BaseModel {
     @column()
     declare categoryId: string
 
-    @hasOne(() => Category)
-    declare category: HasOne<typeof Category>
+    @belongsTo(() => Category)
+    declare category: BelongsTo<typeof Category>
+
+    @hasMany(() => Item)
+    declare items: HasMany<typeof Item>
 
     @column.dateTime({ autoCreate: true })
     declare createdAt: DateTime

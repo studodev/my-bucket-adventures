@@ -1,0 +1,32 @@
+@include('components/layout/header')
+
+<a href="{{ route('bucket_list') }}">Retourner à mes listes</a>
+<h1>{{ bucket.category.icon }} {{ bucket.title }}</h1>
+
+<form method="post" action="{{ route('bucket_item_new', {id: bucket.id}) }}">
+    <label>
+        Nom
+        <input type="text" name="name" value="{{ old("name") || '' }}">
+    </label>
+
+    <button>Ajouter</button>
+
+    @inputError('name')
+        @each(message in $messages)
+            <p>{{ message }}</p>
+        @end
+    @end
+</form>
+
+<ul>
+    @each(item in bucket.items)
+        <li>
+            <a href="{{ route('item_done', {id: item.id}) }}">
+                {{ item.done ? 'Pas fait' : 'Fait' }}
+            </a>
+            {{ item.name }}
+        </li>
+    @end
+</ul>
+
+@include('components/layout/footer')
