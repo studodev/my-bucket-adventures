@@ -3,6 +3,7 @@
 <h1>Ajouter une liste</h1>
 
 <form method="post">
+    {{ csrfField() }}
     <label>
         Titre de la liste
         <input type="text" name="title" value="{{ old("title") || '' }}">

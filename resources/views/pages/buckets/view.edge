@@ -5,6 +5,7 @@
 @include('components/buckets/delete')
 
 <form method="post" action="{{ route('bucket_item_new', {id: bucket.id}) }}">
+    {{ csrfField() }}
     <label>
         Nom
         <input type="text" name="name" value="{{ old("name") || '' }}">
@@ -28,6 +29,7 @@
             {{ item.name }}
 
             <form action="{{ route('item_delete', {id: item.id}) }}" method="post">
+                {{ csrfField() }}
                 <button>Supprimer</button>
             </form>
         </li>
