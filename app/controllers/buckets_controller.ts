@@ -39,6 +39,14 @@ export default class BucketsController {
         });
     }
 
+    async delete(ctx: HttpContext) {
+        const id = ctx.params.id;
+        const bucket = await Bucket.findOrFail(id);
+        await bucket.delete();
+
+        return ctx.response.redirect().toRoute('bucket_list');
+    }
+
     async itemNew(ctx: HttpContext) {
         const id = ctx.params.id;
         const bucket = await Bucket.findOrFail(id);

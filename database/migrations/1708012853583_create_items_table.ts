@@ -8,7 +8,7 @@ export default class extends BaseSchema {
             table.increments('id')
             table.string('name', 40)
             table.boolean('done').defaultTo(false)
-            table.integer('bucket_id').unsigned().references('buckets.id')
+            table.integer('bucket_id').unsigned().references('buckets.id').onDelete('CASCADE')
             table.timestamp('created_at')
             table.timestamp('updated_at')
         })

@@ -2,6 +2,7 @@
 
 <a href="{{ route('bucket_list') }}">Retourner à mes listes</a>
 <h1>{{ bucket.category.icon }} {{ bucket.title }}</h1>
+@include('components/buckets/delete')
 
 <form method="post" action="{{ route('bucket_item_new', {id: bucket.id}) }}">
     <label>
