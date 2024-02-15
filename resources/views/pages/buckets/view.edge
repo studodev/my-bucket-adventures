@@ -26,6 +26,10 @@
                 {{ item.done ? 'Pas fait' : 'Fait' }}
             </a>
             {{ item.name }}
+
+            <form action="{{ route('item_delete', {id: item.id}) }}" method="post">
+                <button>Supprimer</button>
+            </form>
         </li>
     @end
 </ul>

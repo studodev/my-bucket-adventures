@@ -15,4 +15,5 @@ router.post('/buckets/:id/delete', [BucketsController, 'delete']).as('bucket_del
 router.post('/buckets/:id/item', [BucketsController, 'itemNew']).as('bucket_item_new')
 
 // Item
-router.get('item/:id/done', [ItemsController, 'done']).as('item_done')
+router.get('/items/:id/done', [ItemsController, 'done']).as('item_done')
+router.post('/items/:id/delete', [ItemsController, 'delete']).as('item_delete')

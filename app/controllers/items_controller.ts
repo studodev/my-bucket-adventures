@@ -13,4 +13,14 @@ export default class ItemsController {
             id: item.bucketId,
         });
     }
+
+    async delete(ctx: HttpContext) {
+        const id = ctx.params.id;
+        const item = await Item.findOrFail(id);
+        await item.delete();
+
+        return ctx.response.redirect().toRoute('bucket_view', {
+            id: item.bucketId,
+        });
+    }
 }
