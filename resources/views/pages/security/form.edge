@@ -1,0 +1,24 @@
+@include('components/layout/header')
+
+<h1>Connexion</h1>
+
+<form method="post">
+    @error('E_INVALID_CREDENTIALS')
+        <p>Identifiants invalides</p>
+    @end
+
+    {{ csrfField() }}
+    <label>
+        E-mail
+        <input type="email" name="email" value="{{ old("email") || '' }}">
+    </label>
+
+    <label>
+        Mot de passe
+        <input type="password" name="password">
+    </label>
+
+    <button>Connexion</button>
+</form>
+
+@include('components/layout/footer')

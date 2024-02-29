@@ -1,10 +1,16 @@
 import BucketsController from "#controllers/buckets_controller";
 import ItemsController from "#controllers/items_controller";
 import MainController from "#controllers/main_controller";
+import SecurityController from "#controllers/security_controller";
 import router from '@adonisjs/core/services/router'
 
 // Main
 router.get('/', [MainController, 'home']).as('main_home')
+
+// Security
+router.get('/login', [SecurityController, 'form']).as('security_form')
+router.post('/login', [SecurityController, 'handle']).as('security_handle')
+router.get('/logout', [SecurityController, 'logout']).as('security_logout')
 
 // Buckets
 router.get('/buckets', [BucketsController, 'list']).as('bucket_list')

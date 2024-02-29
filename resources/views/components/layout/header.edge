@@ -1,3 +1,5 @@
+@eval(await auth.check())
+
 <!doctype html>
 <html lang="fr">
     <head>
@@ -19,12 +21,23 @@
 
             <nav>
                 <ul>
-                    <li>
-                        <a href="{{ route('bucket_list') }}">Mes listes</a>
-                    </li>
-                    <li>
-                        <a href="#">Déconnexion</a>
-                    </li>
+                    @if(auth.isAuthenticated)
+                        <li>
+                            <a href="{{ route('bucket_list') }}">Mes listes</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('security_logout') }}">Déconnexion</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="#">Inscription</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('security_form') }}">Connexion</a>
+                        </li>
+                    @end
+
+
                 </ul>
             </nav>
         </header>
