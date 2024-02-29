@@ -1,39 +1,40 @@
-@include('components/layout/header')
+@component('components/layout/base', {
+    pageTitle: 'Connexion',
+    entrypoint: 'resources/js/pages/security/form.js',
+})
+    <a href="{{ route('bucket_list') }}">Retourner à mes listes</a>
+    <h1>{{ bucket.category.icon }} {{ bucket.title }}</h1>
+    @include('components/buckets/delete')
 
-<a href="{{ route('bucket_list') }}">Retourner à mes listes</a>
-<h1>{{ bucket.category.icon }} {{ bucket.title }}</h1>
-@include('components/buckets/delete')
+    <form method="post" action="{{ route('bucket_item_new', {id: bucket.id}) }}">
+        {{ csrfField() }}
+        <label>
+            Nom
+            <input type="text" name="name" value="{{ old("name") || '' }}">
+        </label>
 
-<form method="post" action="{{ route('bucket_item_new', {id: bucket.id}) }}">
-    {{ csrfField() }}
-    <label>
-        Nom
-        <input type="text" name="name" value="{{ old("name") || '' }}">
-    </label>
+        <button>Ajouter</button>
 
-    <button>Ajouter</button>
-
-    @inputError('name')
-        @each(message in $messages)
-            <p>{{ message }}</p>
+        @inputError('name')
+            @each(message in $messages)
+                <p>{{ message }}</p>
+            @end
         @end
-    @end
-</form>
+    </form>
 
-<ul>
-    @each(item in bucket.items)
-        <li>
-            <a href="{{ route('item_done', {id: item.id}) }}">
-                {{ item.done ? 'Pas fait' : 'Fait' }}
-            </a>
-            {{ item.name }}
+    <ul>
+        @each(item in bucket.items)
+            <li>
+                <a href="{{ route('item_done', {id: item.id}) }}">
+                    {{ item.done ? 'Pas fait' : 'Fait' }}
+                </a>
+                {{ item.name }}
 
-            <form action="{{ route('item_delete', {id: item.id}) }}" method="post">
-                {{ csrfField() }}
-                <button>Supprimer</button>
-            </form>
-        </li>
-    @end
-</ul>
-
-@include('components/layout/footer')
+                <form action="{{ route('item_delete', {id: item.id}) }}" method="post">
+                    {{ csrfField() }}
+                    <button>Supprimer</button>
+                </form>
+            </li>
+        @end
+    </ul>
+@end

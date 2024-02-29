@@ -1,0 +1,36 @@
+@use "../form";
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+
+    & > * {
+        flex: 1;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    section {
+        min-width: 300px;
+        max-width: 400px;
+    }
+
+    .decoration {
+        align-self: normal;
+        min-width: 300px;
+        max-width: 500px;
+        min-height: 200px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+
+

@@ -1,24 +1,30 @@
-@include('components/layout/header')
+@component('components/layout/base', {
+    pageTitle: 'Connexion',
+    entrypoint: 'resources/js/pages/security/form.js',
+})
+    <section>
+        <h1>Connexion</h1>
 
-<h1>Connexion</h1>
+        <form method="post">
+            @error('E_INVALID_CREDENTIALS')
+                @!form.errors({
+                    errors: ['Identifiants invalides']
+                })
+            @end
 
-<form method="post">
-    @error('E_INVALID_CREDENTIALS')
-        <p>Identifiants invalides</p>
-    @end
+            {{ csrfField() }}
+            <label>
+                Adresse e-mail
+                <input type="email" name="email" value="{{ old("email") || '' }}">
+            </label>
 
-    {{ csrfField() }}
-    <label>
-        E-mail
-        <input type="email" name="email" value="{{ old("email") || '' }}">
-    </label>
+            <label>
+                Mot de passe
+                <input type="password" name="password">
+            </label>
 
-    <label>
-        Mot de passe
-        <input type="password" name="password">
-    </label>
-
-    <button>Connexion</button>
-</form>
-
-@include('components/layout/footer')
+            <button class="button">Me connecter</button>
+        </form>
+    </section>
+    <div class="decoration"></div>
+@end

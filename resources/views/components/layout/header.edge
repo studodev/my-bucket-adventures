@@ -1,45 +1,27 @@
-@eval(await auth.check())
+<header>
+    <a href="{{ route('main_home') }}">
+        <img src="{{ asset('resources/images/logo.svg') }}" alt="Logo de MyBucketAdventures" class="logo">
+    </a>
 
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title>My Bucket Adventures</title>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap">
-        @vite(['resources/js/app.js'])
-    </head>
-    <body>
-        <header>
-            <a href="{{ route('main_home') }}">
-                <img src="{{ asset('resources/images/logo.svg') }}" alt="Logo de MyBucketAdventures" class="logo">
-            </a>
-
-            <nav>
-                <ul>
-                    @if(auth.isAuthenticated)
-                        <li>
-                            <a href="{{ route('bucket_list') }}">Mes listes</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('security_logout') }}">Déconnexion</a>
-                        </li>
-                    @else
-                        <li>
-                            <a href="#">Inscription</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('security_form') }}">Connexion</a>
-                        </li>
-                    @end
+    <nav>
+        <ul>
+            @if(auth.isAuthenticated)
+                <li>
+                    <a href="{{ route('bucket_list') }}">Mes listes</a>
+                </li>
+                <li>
+                    <a href="{{ route('security_logout') }}">Déconnexion</a>
+                </li>
+            @else
+                <li>
+                    <a href="#">Inscription</a>
+                </li>
+                <li>
+                    <a href="{{ route('security_form') }}">Connexion</a>
+                </li>
+            @end
 
 
-                </ul>
-            </nav>
-        </header>
-
-        <main>
+        </ul>
+    </nav>
+</header>

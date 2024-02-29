@@ -1,0 +1,35 @@
+@use "button";
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+label {
+    width: 100%;
+    color: var(--blue);
+    font-size: 1.1rem;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: var(--radius-default);
+    border: 1px solid var(--pink);
+    background-color: color-mix(in srgb, var(--lilac) 20%, transparent 80%);
+    color: var(--pink);
+    font-size: 1.1rem;
+}
+
+.form-errors {
+    width: 100%;
+
+    li {
+        padding: 5px 10px;
+        border-left: 3px solid var(--warn);
+    }
+}

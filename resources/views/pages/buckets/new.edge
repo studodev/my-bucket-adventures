@@ -1,37 +1,38 @@
-@include('components/layout/header')
+@component('components/layout/base', {
+    pageTitle: 'Connexion',
+    entrypoint: 'resources/js/pages/security/form.js',
+})
+    <h1>Ajouter une liste</h1>
 
-<h1>Ajouter une liste</h1>
-
-<form method="post">
-    {{ csrfField() }}
-    <label>
-        Titre de la liste
-        <input type="text" name="title" value="{{ old("title") || '' }}">
-    </label>
-    @inputError('title')
-        @each(message in $messages)
-            <p>{{ message }}</p>
-        @end
-    @end
-
-    <label>
-        Catégorie
-        <select name="categoryId">
-            @each(category in categories)
-                <option value="{{ category.id }}" {{ category.id == old("category") ? 'selected' : '' }}>
-                    {{ category.icon }}
-                    {{ category.name }}
-                </option>
+    <form method="post">
+        {{ csrfField() }}
+        <label>
+            Titre de la liste
+            <input type="text" name="title" value="{{ old("title") || '' }}">
+        </label>
+        @inputError('title')
+            @each(message in $messages)
+                <p>{{ message }}</p>
             @end
-        </select>
-    </label>
-    @inputError('category')
-        @each(message in $messages)
-            <p>{{ message }}</p>
         @end
-    @end
 
-    <button>Enregistrer</button>
-</form>
+        <label>
+            Catégorie
+            <select name="categoryId">
+                @each(category in categories)
+                    <option value="{{ category.id }}" {{ category.id == old("category") ? 'selected' : '' }}>
+                        {{ category.icon }}
+                        {{ category.name }}
+                    </option>
+                @end
+            </select>
+        </label>
+        @inputError('category')
+            @each(message in $messages)
+                <p>{{ message }}</p>
+            @end
+        @end
 
-@include('components/layout/footer')
+        <button>Enregistrer</button>
+    </form>
+@end
