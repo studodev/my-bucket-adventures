@@ -1,11 +1,8 @@
 import User from "#models/user";
 import type { HttpContext } from '@adonisjs/core/http'
-import hash from "@adonisjs/core/services/hash";
 
 export default class SecurityController {
-    async form(ctx: HttpContext) {
-        console.log(await hash.make('test'));
-
+    form(ctx: HttpContext) {
         return ctx.view.render('pages/security/form');
     }
 
