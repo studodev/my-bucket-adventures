@@ -80,6 +80,13 @@
     qs "^6.11.1"
     raw-body "^2.5.2"
 
+"@adonisjs/bouncer@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@adonisjs/bouncer/-/bouncer-3.1.1.tgz#ce535aa596e30d5a529ac1cb24b98d48df0c6206"
+  integrity sha512-Se1Ypsmv5dEiX78ZcJdHKCphLpbpPT5r8k1ZKIq86T23n8tgtX8AqJqzuW4Pvtrm/d5rJQrD0bfItzlcTsYRiw==
+  dependencies:
+    "@poppinss/utils" "^6.7.1"
+
 "@adonisjs/config@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@adonisjs/config/-/config-5.0.1.tgz#ce63c1a0c6708ea6bc5e9df863f59b8c57894bdb"

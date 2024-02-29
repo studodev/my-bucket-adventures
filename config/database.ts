@@ -1,4 +1,5 @@
 import env from '#start/env'
+import app from "@adonisjs/core/services/app";
 import { defineConfig } from '@adonisjs/lucid'
 
 const dbConfig = defineConfig({
@@ -6,6 +7,7 @@ const dbConfig = defineConfig({
   connections: {
     mysql: {
       client: 'mysql2',
+      debug: !app.inProduction,
       connection: {
         host: env.get('DB_HOST'),
         port: env.get('DB_PORT'),
