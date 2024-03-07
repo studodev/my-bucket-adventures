@@ -1,4 +1,18 @@
-@component('components/layout/base')
-    <h1>Regroupez vos Bucket Lists grâce à My Bucket Adventures !</h1>
+@component('components/layout/base', {
+   entrypoint: 'resources/js/pages/main/home.js',
+})
+    <section>
+        <h1>Regroupez vos Bucket Lists grâce à My Bucket Adventures !</h1>
+        <p>
+            Bienvenue sur My Bucket Adventures : votre future plateforme préférée de <strong>gestion de listes d'envies</strong> en tous genres !<br>
+            <span class="spacer"></span>
+            Que ce soit pour vos <strong>destinations de voyage</strong> incontournables, les <strong>films et séries</strong> à voir absolument, ou même les <strong>livres</strong> à dévorer dans votre vie, les <strong>parcs d'attractions</strong> que vous rêvez de faire... My Bucket Adventures vous accompagne dans l'exploration de vos passions et de vos rêves.
+        </p>
 
+        @if(!auth.isAuthenticated)
+            <a href="{{ route('security_register_form') }}" class="button">Je veux m'inscrire</a>
+        @end
+    </section>
+    <div class="decoration"></div>
 @end
+
