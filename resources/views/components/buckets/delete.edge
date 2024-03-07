@@ -1,4 +1,6 @@
 <form action="{{ route('bucket_delete', {id: bucket.id}) }}" method="post">
     {{ csrfField() }}
-    <button>Supprimer</button>
+    <button>
+        <i class="fas fa-trash-can fa-xl"></i>
+    </button>
 </form>

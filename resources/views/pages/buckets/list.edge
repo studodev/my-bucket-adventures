@@ -1,10 +1,12 @@
 @component('components/layout/base', {
-    pageTitle: 'Connexion',
-    entrypoint: 'resources/js/pages/security/form.js',
+    pageTitle: 'Mes listes',
+    entrypoint: 'resources/js/pages/bucket/list.js',
 })
-    <h1>Mes listes</h1>
+    <div class="header">
+        <h1>Mes listes</h1>
 
-    <a href="{{ route('bucket_new') }}">+ Créer une liste</a>
+        <a href="{{ route('bucket_new') }}" class="button small">+ Créer une liste</a>
+    </div>
 
     <section>
         @each(bucket in buckets)
@@ -13,8 +15,32 @@
                     <h2>{{ bucket.category.icon }} {{ bucket.title }}</h2>
                 </a>
 
-                @include('components/buckets/delete')
+                <aside>
+                    <a href="{{ route('bucket_view', {id: bucket.id}) }}">
+                        <i class="fas fa-eye fa-xl"></i>
+                    </a>
+                    @include('components/buckets/delete')
+                </aside>
             </article>
+
+        @else
+            <div class="empty">
+                <div class="content">
+                    <h2>Et si tu créais ta première liste ?</h2>
+                    <p>
+                        <span>On dirait que tu viens de débarquer ?</span><br>
+                        Et si tu créais ta première liste pour explorer ce que My Bucket Adventures te permettra de faire !
+                    </p>
+
+                    <div class="action">
+                        <a href="{{ route('bucket_new') }}" class="button small">
+                            Créer ma 1ère liste !
+                        </a>
+                    </div>
+                </div>
+
+                <div class="decoration"></div>
+            </div>
         @end
     </section>
 @end
