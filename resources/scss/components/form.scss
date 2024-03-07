@@ -27,6 +27,10 @@ input[type="text"], input[type="password"], input[type="email"] {
     background-color: color-mix(in srgb, var(--lilac) 20%, transparent 80%);
     color: var(--pink);
     font-size: 1.1rem;
+
+    &::placeholder {
+        color: color-mix(in srgb, var(--pink) 70%, transparent 30%);
+    }
 }
 
 .form-errors {

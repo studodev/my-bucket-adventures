@@ -1,0 +1,59 @@
+@use "../../components/button";
+@use "../../components/form";
+@use "../../components/layout/page-view";
+
+.go-back {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1024px;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.form-add {
+    margin-bottom: 30px;
+    gap: 5px;
+
+    .aligned {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+
+        button {
+            font-weight: 700;
+            font-size: 2rem;
+        }
+    }
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .check-action {
+            width: 20px;
+            height: 20px;
+            border-radius: 2px;
+            border: 1px solid var(--yellow);
+            background-color: color-mix(in srgb, var(--lilac) 20%, transparent 80%);
+            font-size: 2rem;
+            line-height: 0.5;
+        }
+    }
+}

@@ -23,6 +23,7 @@ export default class ItemsController {
     async delete(ctx: HttpContext) {
         const id = ctx.params.id;
         const item = await Item.findOrFail(id);
+        await item.load('bucket');
 
         if (await ctx.bouncer.denies(bucketAccess, item.bucket)) {
             return ctx.response.abort('Your cannot access this bucket', 403)

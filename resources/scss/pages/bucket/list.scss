@@ -1,17 +1,5 @@
 @use "../../components/button";
-
-main {
-    max-width: 1024px;
-    width: 100%;
-    margin-inline: auto;
-}
-
-.header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
+@use "../../components/layout/page-view";
 
 section {
     display: flex;
@@ -27,6 +15,7 @@ section {
         align-items: center;
         padding: 15px;
         border: 2px solid var(--blue);
+        border-radius: var(--radius-default);
 
         &:nth-child(even) {
             border-color: var(--yellow);
