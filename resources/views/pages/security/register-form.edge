@@ -1,0 +1,52 @@
+@component('components/layout/base', {
+    pageTitle: 'Inscription',
+    entrypoint: 'resources/js/pages/security/register-form.js',
+})
+    <section>
+        <h1>Inscription</h1>
+
+        <form method="post">
+            {{ csrfField() }}
+
+            <div class="form-field">
+                <label>
+                    Adresse e-mail
+                    <input type="email" name="email" value="{{ old("email") || '' }}">
+                </label>
+                @inputError('email')
+                    @!form.errors({
+                        errors: $messages
+                    })
+                @end
+            </div>
+
+
+            <div class="form-field">
+                <label>
+                    Nom d'utilisateur
+                    <input type="text" name="username" value="{{ old("username") || '' }}">
+                </label>
+                @inputError('username')
+                    @!form.errors({
+                        errors: $messages
+                    })
+                @end
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Mot de passe
+                    <input type="password" name="password">
+                </label>
+                @inputError('password')
+                    @!form.errors({
+                        errors: $messages
+                    })
+                @end
+            </div>
+
+            <button class="button">M'inscrire</button>
+        </form>
+    </section>
+    <div class="decoration"></div>
+@end

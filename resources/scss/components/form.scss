@@ -7,6 +7,10 @@ form {
     gap: 30px;
 }
 
+.form-field {
+    width: 100%;
+}
+
 label {
     width: 100%;
     color: var(--blue);
@@ -26,6 +30,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .form-errors {
+    margin-top: 5px;
     width: 100%;
 
     li {

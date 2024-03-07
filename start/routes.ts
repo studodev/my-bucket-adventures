@@ -11,6 +11,8 @@ router.get('/', [MainController, 'home']).as('main_home')
 // Security
 router.get('/login', [SecurityController, 'form']).as('security_form').use(middleware.guest())
 router.post('/login', [SecurityController, 'handle']).as('security_handle').use(middleware.guest())
+router.get('/register', [SecurityController, 'registerForm']).as('security_register_form').use(middleware.guest())
+router.post('/register', [SecurityController, 'registerHandle']).as('security_register_handle').use(middleware.guest())
 router.get('/logout', [SecurityController, 'logout']).as('security_logout').use(middleware.auth())
 
 // Buckets
