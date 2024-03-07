@@ -1,38 +1,46 @@
 @component('components/layout/base', {
-    pageTitle: 'Connexion',
-    entrypoint: 'resources/js/pages/security/form.js',
+    pageTitle: 'Créer une liste',
+    entrypoint: 'resources/js/pages/bucket/new.js',
 })
-    <h1>Ajouter une liste</h1>
+    <section>
+        <h1>Créer une liste</h1>
 
-    <form method="post">
-        {{ csrfField() }}
-        <label>
-            Titre de la liste
-            <input type="text" name="title" value="{{ old("title") || '' }}">
-        </label>
-        @inputError('title')
-            @each(message in $messages)
-                <p>{{ message }}</p>
-            @end
-        @end
+        <form method="post">
+            {{ csrfField() }}
 
-        <label>
-            Catégorie
-            <select name="categoryId">
-                @each(category in categories)
-                    <option value="{{ category.id }}" {{ category.id == old("category") ? 'selected' : '' }}>
-                        {{ category.icon }}
-                        {{ category.name }}
-                    </option>
+            <div class="form-field">
+                <label>
+                    Titre de la liste
+                    <input type="text" name="title" value="{{ old("title") || '' }}">
+                </label>
+                @inputError('title')
+                    @!form.errors({
+                        errors: $messages
+                    })
                 @end
-            </select>
-        </label>
-        @inputError('category')
-            @each(message in $messages)
-                <p>{{ message }}</p>
-            @end
-        @end
+            </div>
 
-        <button>Enregistrer</button>
-    </form>
+            <div class="form-field">
+                <label>
+                    Catégorie
+                    <select name="categoryId">
+                        @each(category in categories)
+                            <option value="{{ category.id }}" {{ category.id == old("category") ? 'selected' : '' }}>
+                                {{ category.icon }}
+                                {{ category.name }}
+                            </option>
+                        @end
+                    </select>
+                </label>
+                @inputError('category')
+                    @!form.errors({
+                        errors: $messages
+                    })
+                @end
+            </div>
+
+            <button class="button">Je crée ma liste</button>
+        </form>
+    </section>
+    <div class="decoration"></div>
 @end

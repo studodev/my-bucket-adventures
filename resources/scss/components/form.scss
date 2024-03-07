@@ -17,7 +17,7 @@ label {
     font-size: 1.1rem;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], select {
     display: block;
     width: 100%;
     margin-top: 5px;
@@ -31,6 +31,10 @@ input[type="text"], input[type="password"], input[type="email"] {
     &::placeholder {
         color: color-mix(in srgb, var(--pink) 70%, transparent 30%);
     }
+}
+
+select option {
+    background-color: var(--dark-blue);
 }
 
 .form-errors {
